@@ -1,4 +1,6 @@
-# 📚 Quoted 
+# 📚 Quoted
+
+**Online:** 29 Nov 2025
 
 <p align="center">
   <img src="quoted.png"
