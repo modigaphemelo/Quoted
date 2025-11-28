@@ -1,4 +1,6 @@
-# Quoted 📚
+# 📚 Quoted 
+
+<p align="center"><img src="qouted.png"/></p>
 
 A digital library of wisdom — a curated collection of profound insights and timeless quotes across philosophy, psychology, business, and personal development.
 
