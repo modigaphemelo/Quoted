@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemology | Quoted</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../quoted.png">
+</head>
+<body>
+    <div class="container">
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="mobile-logo">QUOTED</h1>
+        </header>
+
+        <!-- Side Navigation -->
+        <nav class="sidenav" id="sideNav">
+            <div class="nav-header">
+                <div class="header-top">
+                    <h1 class="logo">QUOTED</h1>
+                    <button class="close-menu" id="closeMenu">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav-subtitle">Digital Library of Wisdom</div>
+            </div>
+            
+            <div class="nav-topics">
+                <div class="nav-links-container">
+                    <a href="absurdism.html" class="nav-link">Absurdism</a>
+                    <a href="addiction-to-knowledge.html" class="nav-link">Addiction to Knowledge</a>
+                    <a href="alcohol-drugs.html" class="nav-link">Alcohol and Drugs</a>
+                    <a href="algorithms.html" class="nav-link">Algorithms</a>
+                    <a href="applied-knowledge.html" class="nav-link">Applied Knowledge</a>
+                    <a href="artificial-intelligence.html" class="nav-link">Artificial Intelligence</a>
+                    <a href="artists.html" class="nav-link">Artists</a>
+                    <a href="attention.html" class="nav-link">Attention</a>
+                    <a href="authenticity.html" class="nav-link">Authenticity</a>
+                    <a href="beliefs.html" class="nav-link">Beliefs</a>
+                    <a href="biases.html" class="nav-link">Biases</a>
+                    <a href="bureaucracy.html" class="nav-link">Bureaucracy</a>
+                    <a href="business.html" class="nav-link">Business</a>
+                    <a href="career.html" class="nav-link">Career</a>
+                    <a href="change.html" class="nav-link">Change & Adaptation</a>
+                    <a href="chaos-theory.html" class="nav-link">Chaos Theory</a>
+                    <a href="class.html" class="nav-link">Class</a>
+                    <a href="clothing.html" class="nav-link">Clothing</a>
+                    <a href="cognitive-dissonance.html" class="nav-link">Cognitive Dissonance</a>
+                    <a href="comfort-risk.html" class="nav-link">Comfort & Risk</a>
+                    <a href="commitment.html" class="nav-link">Commitment</a>
+                    <a href="communication.html" class="nav-link">Communication</a>
+                    <a href="community.html" class="nav-link">Community & Legacy</a>
+                    <a href="complexity.html" class="nav-link">Complexity</a>
+                    <a href="conformity.html" class="nav-link">Conformity</a>
+                    <a href="conflict.html" class="nav-link">Conflict</a>
+                    <a href="consequences.html" class="nav-link">Consequences</a>
+                    <a href="consciousness.html" class="nav-link">Consciousness</a>
+                    <a href="consistency.html" class="nav-link">Consistency</a>
+                    <a href="consumerism.html" class="nav-link">Consumerism</a>
+                    <a href="courage.html" class="nav-link">Courage</a>
+                    <a href="creativity.html" class="nav-link">Creativity</a>
+                    <a href="critical-thinking.html" class="nav-link">Critical Thinking</a>
+                    <a href="criticism.html" class="nav-link">Criticism</a>
+                    <a href="cryptography.html" class="nav-link">Cryptography</a>
+                    <a href="cybernetics.html" class="nav-link">Cybernetics</a>
+                    <a href="democracy.html" class="nav-link">Democracy</a>
+                    <a href="denial.html" class="nav-link">Denial</a>
+                    <a href="determinism.html" class="nav-link">Determinism</a>
+                    <a href="digital-wellness.html" class="nav-link">Digital Wellness</a>
+                    <a href="discipline.html" class="nav-link">Discipline</a>
+                    <a href="dopamine.html" class="nav-link">Dopamine</a>
+                    <a href="education.html" class="nav-link">Education</a>
+                    <a href="emergence.html" class="nav-link">Emergence</a>
+                    <a href="entertainment.html" class="nav-link">Entertainment</a>
+                    <a href="environment.html" class="nav-link">Environment</a>
+                    <a href="envy.html" class="nav-link">Envy</a>
+                    <a href="epistemology.html" class="nav-link active">Epistemology</a>
+                    <a href="ethics.html" class="nav-link">Ethics</a>
+                    <a href="excellence.html" class="nav-link">Excellence</a>
+                    <a href="execution.html" class="nav-link">Execution</a>
+                    <a href="existentialism.html" class="nav-link">Existentialism</a>
+                    <a href="failure.html" class="nav-link">Failure</a>
+                    <a href="faith.html" class="nav-link">Faith</a>
+                    <a href="fallacies.html" class="nav-link">Fallacies</a>
+                    <a href="family.html" class="nav-link">Family</a>
+                    <a href="fatherhood.html" class="nav-link">Fatherhood</a>
+                    <a href="fear.html" class="nav-link">Fear</a>
+                    <a href="feedback.html" class="nav-link">Feedback</a>
+                    <a href="find-your-path.html" class="nav-link">Find Your Path</a>
+                    <a href="fitness.html" class="nav-link">Physical Fitness</a>
+                    <a href="focus.html" class="nav-link">Focus & Concentration</a>
+                    <a href="food.html" class="nav-link">Food</a>
+                    <a href="forgiveness.html" class="nav-link">Forgiveness</a>
+                    <a href="fractals.html" class="nav-link">Fractals</a>
+                    <a href="freedom.html" class="nav-link">Freedom</a>
+                    <a href="friends.html" class="nav-link">Friends</a>
+                    <a href="fundamentals.html" class="nav-link">Fundamentals</a>
+                    <a href="futurism.html" class="nav-link">Futurism</a>
+                    <a href="generosity.html" class="nav-link">Generosity</a>
+                    <a href="genius.html" class="nav-link">Genius</a>
+                    <a href="goal-setting.html" class="nav-link">Goal Setting</a>
+                    <a href="gratitude.html" class="nav-link">Gratitude</a>
+                    <a href="growing-old.html" class="nav-link">Growing Old</a>
+                    <a href="habits.html" class="nav-link">Habits</a>
+                    <a href="happiness.html" class="nav-link">Happiness</a>
+                    <a href="herds.html" class="nav-link">Herds</a>
+                    <a href="heuristics.html" class="nav-link">Heuristics</a>
+                    <a href="hesitation-is-defeat.html" class="nav-link">Hesitation is Defeat</a>
+                    <a href="hiring.html" class="nav-link">Hiring and Being Hired</a>
+                    <a href="history.html" class="nav-link">History</a>
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="honesty.html" class="nav-link">Honesty</a>
+                    <a href="humility.html" class="nav-link">Humility</a>
+                    <a href="hydration.html" class="nav-link">Hydration</a>
+                    <a href="ideas.html" class="nav-link">Ideas</a>
+                    <a href="improving.html" class="nav-link">Improving</a>
+                    <a href="inequality.html" class="nav-link">Inequality</a>
+                    <a href="information-overload.html" class="nav-link">Information Overload</a>
+                    <a href="inspiration.html" class="nav-link">Inspiration</a>
+                    <a href="integrity.html" class="nav-link">Integrity & Reputation</a>
+                    <a href="investing.html" class="nav-link">Investing</a>
+                    <a href="intuition.html" class="nav-link">Intuition</a>
+                    <a href="jealousy.html" class="nav-link">Jealousy</a>
+                    <a href="journaling.html" class="nav-link">Journaling</a>
+                    <a href="justice.html" class="nav-link">Justice</a>
+                    <a href="knowledge-addiction.html" class="nav-link">Addiction to Knowledge</a>
+                    <a href="leadership.html" class="nav-link">Leadership</a>
+                    <a href="learning.html" class="nav-link">Learning</a>
+                    <a href="life.html" class="nav-link">Life</a>
+                    <a href="lifestyle.html" class="nav-link">Lifestyle</a>
+                    <a href="living-space.html" class="nav-link">Living Space</a>
+                    <a href="logic.html" class="nav-link">Logic</a>
+                    <a href="long-term-thinking.html" class="nav-link">Long-Term Thinking</a>
+                    <a href="loyalty.html" class="nav-link">Loyalty</a>
+                    <a href="luck-vs-risk.html" class="nav-link">Luck vs Risk</a>
+                    <a href="marriage.html" class="nav-link">Marriage</a>
+                    <a href="masculinity.html" class="nav-link">Masculinity</a>
+                    <a href="mastery.html" class="nav-link">Mastery</a>
+                    <a href="mathematics.html" class="nav-link">Pure Mathematics</a>
+                    <a href="memory.html" class="nav-link">Memory</a>
+                    <a href="mental-health.html" class="nav-link">Mental Health</a>
+                    <a href="mentorship.html" class="nav-link">Mentorship</a>
+                    <a href="metacognition.html" class="nav-link">Metacognition</a>
+                    <a href="mindset.html" class="nav-link">Mindset</a>
+                    <a href="minimalism.html" class="nav-link">Minimalism</a>
+                    <a href="moderation.html" class="nav-link">Moderation</a>
+                    <a href="morality.html" class="nav-link">Morality</a>
+                    <a href="multitasking.html" class="nav-link">Multitasking vs Single-tasking</a>
+                    <a href="networking.html" class="nav-link">Networking</a>
+                    <a href="networks.html" class="nav-link">Networks</a>
+                    <a href="nihilism.html" class="nav-link">Nihilism</a>
+                    <a href="opportunities.html" class="nav-link">Opportunities</a>
+                    <a href="optimists.html" class="nav-link">Optimists</a>
+                    <a href="pain.html" class="nav-link">Pain</a>
+                    <a href="paradoxes.html" class="nav-link">Paradoxes</a>
+                    <a href="parenting.html" class="nav-link">Parenting</a>
+                    <a href="passion-projects.html" class="nav-link">Passion Projects</a>
+                    <a href="past.html" class="nav-link">The Past</a>
+                    <a href="patience.html" class="nav-link">Patience</a>
+                    <a href="perception.html" class="nav-link">Perception</a>
+                    <a href="perfectionism.html" class="nav-link">Perfectionism</a>
+                    <a href="planning.html" class="nav-link">Planning and Strategy</a>
+                    <a href="politicians.html" class="nav-link">Politicians</a>
+                    <a href="politics.html" class="nav-link">Politics</a>
+                    <a href="pride.html" class="nav-link">Pride</a>
+                    <a href="priorities.html" class="nav-link">Priorities</a>
+                    <a href="privacy.html" class="nav-link">Privacy</a>
+                    <a href="problem-solving.html" class="nav-link">Problem Solving</a>
+                    <a href="procrastination.html" class="nav-link">Procrastination</a>
+                    <a href="productivity.html" class="nav-link">Productivity</a>
+                    <a href="programming.html" class="nav-link">Programming</a>
+                    <a href="purpose.html" class="nav-link">Purpose</a>
+                    <a href="quantum-mechanics.html" class="nav-link">Quantum Mechanics</a>
+                    <a href="quitting.html" class="nav-link">Quitting</a>
+                    <a href="reading.html" class="nav-link">Reading</a>
+                    <a href="relationships.html" class="nav-link">Relationships</a>
+                    <a href="religion.html" class="nav-link">Religion</a>
+                    <a href="resilience.html" class="nav-link">Resilience</a>
+                    <a href="respect.html" class="nav-link">Respect</a>
+                    <a href="responsibility.html" class="nav-link">Responsibility</a>
+                    <a href="rationality.html" class="nav-link">Rationality</a>
+                    <a href="satisficing.html" class="nav-link">Satisficing</a>
+                    <a href="scars.html" class="nav-link">Scars and Wounds</a>
+                    <a href="science.html" class="nav-link">Science</a>
+                    <a href="self-awareness.html" class="nav-link">Self-Awareness</a>
+                    <a href="self-care.html" class="nav-link">Self-Care</a>
+                    <a href="self-sabotage.html" class="nav-link">Self-Sabotage</a>
+                    <a href="simplicity.html" class="nav-link">Simplicity</a>
+                    <a href="simulation-theory.html" class="nav-link">Simulation Theory</a>
+                    <a href="singularity.html" class="nav-link">Singularity</a>
+                    <a href="skepticism.html" class="nav-link">Skepticism</a>
+                    <a href="skill-development.html" class="nav-link">Skill Development</a>
+                    <a href="sleep.html" class="nav-link">Sleep</a>
+                    <a href="social-issues.html" class="nav-link">Social Issues</a>
+                    <a href="socialism.html" class="nav-link">Socialism</a>
+                    <a href="society.html" class="nav-link">Society</a>
+                    <a href="solipsism.html" class="nav-link">Solipsism</a>
+                    <a href="speed-direction.html" class="nav-link">Speed and Direction</a>
+                    <a href="spirituality.html" class="nav-link">Spirituality</a>
+                    <a href="starting-finishing.html" class="nav-link">Starting & Finishing</a>
+                    <a href="statistics.html" class="nav-link">Statistics</a>
+                    <a href="stoicism.html" class="nav-link">Stoicism</a>
+                    <a href="stress.html" class="nav-link">Stress</a>
+                    <a href="success.html" class="nav-link">Success</a>
+                    <a href="sustainability.html" class="nav-link">Sustainability</a>
+                    <a href="taoism.html" class="nav-link">Taoism</a>
+                    <a href="taxes.html" class="nav-link">Taxes</a>
+                    <a href="time.html" class="nav-link">Time</a>
+                    <a href="tolerance.html" class="nav-link">Tolerance</a>
+                    <a href="transhumanism.html" class="nav-link">Transhumanism</a>
+                    <a href="travel.html" class="nav-link">Travel and Adventure</a>
+                    <a href="truth.html" class="nav-link">Truth</a>
+                    <a href="victim-mentality.html" class="nav-link">Victim Mentality</a>
+                    <a href="violence.html" class="nav-link">Violence</a>
+                    <a href="vision.html" class="nav-link">Vision</a>
+                    <a href="wealth.html" class="nav-link">Wealth</a>
+                    <a href="will-to-stupidity.html" class="nav-link">Will to Stupidity</a>
+                    <a href="winning.html" class="nav-link">Winning</a>
+                    <a href="wisdom.html" class="nav-link">Wisdom</a>
+                    <a href="worldview.html" class="nav-link">Worldview</a>
+                </div>
+            </div>
+            
+            <div class="nav-footer">
+                <div class="system-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">System Online</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span class="breadcrumb-divider">/</span>
+                    <span class="breadcrumb-item active">Epistemology</span>
+                </div>
+            </header>
+
+            <section class="topic-hero">
+                <h1 class="topic-title">Epistemology</h1>
+                <p class="topic-description">The study of knowledge itself - how we know what we know, and why we believe what we believe</p>
+            </section>
+
+            <section class="quotes-container">
+                <article class="quote-card highlight">
+                    <div class="quote-text">
+                        <p>The beginning of wisdom is the realization of how little we truly know.</p>
+                    </div>
+                </article>
+
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We don't see things as they are; we see things as we are.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The map is not the territory, but we navigate our lives by these imperfect maps.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Certainty is the enemy of truth - the truly wise hold their beliefs lightly.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Knowledge is not a destination but a direction - we approach truth asymptotically.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The most dangerous knowledge is the knowledge we don't know we lack.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Reality doesn't care about our models, but our models determine what reality we can perceive.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The limits of my language mean the limits of my world - and the limits of my knowledge.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We know through our biases as much as through our senses - perception is always interpretation.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The scientific method is epistemology in action - a systematic way of being wrong as little as possible.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>What can be asserted without evidence can be dismissed without evidence.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The foundation of all knowledge is the recognition of our own ignorance.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We build our understanding of the world on assumptions we cannot prove but must accept to know anything at all.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The truth is not always beautiful, but the pursuit of truth is always beautiful.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Knowledge grows through disagreement, not consensus - through challenge, not confirmation.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We know more than we can tell, and we tell more than we can prove.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The test of all knowledge is experiment - not what seems reasonable, but what actually works.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Every belief is a hypothesis waiting to be tested by reality.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The most profound truths are those that reveal the limitations of our ways of knowing.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We don't discover truth by adding more facts, but by removing more illusions.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Knowledge without context is information; knowledge with context is understanding.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The mind is not a vessel to be filled, but a fire to be kindled - and epistemology is the study of that flame.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>What we cannot speak about we must pass over in silence - but first we must determine what can be spoken about.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The history of knowledge is the history of errors corrected, not truths discovered.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We know through our tools of knowing - and epistemology examines those very tools.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The most valuable knowledge is knowing the boundaries of your knowledge.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>Truth is not determined by how strongly we believe, but by how well our beliefs correspond to reality.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>We swim in an ocean of uncertainty, building islands of temporary certainty called knowledge.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>The purpose of epistemology is not to find answers, but to ask better questions about how we find answers.</p>
+                    </div>
+                </article>
+                
+                <article class="quote-card">
+                    <div class="quote-text">
+                        <p>All our knowledge has its origins in our perceptions, but not all perceptions lead to knowledge.</p>
+                    </div>
+                </article>
+            </section>
+        </main>
+    
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
