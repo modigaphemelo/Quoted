@@ -4,87 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Quoted</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="quoted.png">
     <style>
-        /* 404 Page Specific Styles */
-        .error-hero {
+        :root {
+            --color-bg-primary: #0a0a0f;
+            --color-bg-secondary: #12121a;
+            --color-bg-tertiary: #1a1a25;
+            --color-accent-primary: #00f3ff;
+            --color-accent-secondary: #9d4edd;
+            --color-accent-tertiary: #ff006e;
+            --color-text-primary: #e0e0e0;
+            --color-text-secondary: #a0a0b0;
+            --color-text-muted: #606070;
+            --color-border: #252535;
+            --color-glow: rgba(0, 243, 255, 0.7);
+            --shadow-glow: 0 0 15px var(--color-glow);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration, 3s) infinite ease-in-out;
+        }
+
+        .star.small { width: 1px; height: 1px; }
+        .star.medium { width: 2px; height: 2px; }
+        .star.large { width: 3px; height: 3px; }
+
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.1;
+            animation: nebula-float 20s infinite ease-in-out;
+        }
+
+        .nebula-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--color-accent-primary);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .nebula-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--color-accent-secondary);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .nebula-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--color-accent-tertiary);
+            top: 50%;
+            left: 80%;
+            animation-delay: -10s;
+        }
+
+        /* Main Container */
+        .error-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 80vh;
-            text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
         }
 
         .error-content {
-            max-width: 650px;
+            text-align: center;
+            max-width: 800px;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
 
+        /* Animated 404 */
         .error-code {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2.5rem;
-            font-size: 10rem;
-            font-weight: 900;
-            font-family: 'Orbitron', monospace;
+            margin-bottom: 3rem;
             position: relative;
         }
 
-        .error-number {
+        .error-digit {
+            font-family: 'Orbitron', monospace;
+            font-size: 12rem;
+            font-weight: 900;
             background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 40px rgba(0, 243, 255, 0.5);
+            text-shadow: 0 0 50px rgba(0, 243, 255, 0.5);
             position: relative;
-            z-index: 2;
+            animation: digit-float 4s ease-in-out infinite;
         }
+
+        .error-digit:nth-child(1) { animation-delay: 0s; }
+        .error-digit:nth-child(3) { animation-delay: 0.2s; }
 
         .error-icon {
-            font-size: 7rem;
-            margin: 0 1.5rem;
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.4));
+            font-size: 8rem;
+            margin: 0 2rem;
+            animation: icon-spin 6s linear infinite, icon-float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(157, 78, 221, 0.6));
             position: relative;
-            z-index: 2;
         }
 
+        .error-icon::before {
+            content: "💭";
+        }
+
+        /* Title & Description */
         .error-title {
             font-family: 'Orbitron', monospace;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: var(--color-text-primary);
-            text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            background: linear-gradient(135deg, var(--color-text-primary), var(--color-accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+            animation: title-glow 2s ease-in-out infinite alternate;
         }
 
         .error-description {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--color-text-secondary);
             line-height: 1.7;
             margin-bottom: 3rem;
-            max-width: 500px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        /* Floating Quotes */
         .error-quotes {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 4rem;
+            perspective: 1000px;
         }
 
-        .error-quotes .quote-card {
-            background-color: var(--color-bg-secondary);
+        .quote-card {
+            background: linear-gradient(135deg, rgba(18, 18, 26, 0.9), rgba(26, 26, 37, 0.9));
             border: 1px solid var(--color-border);
             border-radius: var(--border-radius);
             padding: 2rem;
@@ -93,15 +195,20 @@
             overflow: hidden;
             transition: var(--transition);
             backdrop-filter: blur(10px);
+            animation: card-float 5s ease-in-out infinite;
+            transform-style: preserve-3d;
         }
 
-        .error-quotes .quote-card:hover {
-            transform: translateY(-5px);
+        .quote-card:nth-child(1) { animation-delay: 0s; }
+        .quote-card:nth-child(2) { animation-delay: 1s; }
+
+        .quote-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
             border-color: var(--color-accent-primary);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.3);
         }
 
-        .error-quotes .quote-card::before {
+        .quote-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -111,198 +218,222 @@
             background: linear-gradient(to bottom, var(--color-accent-primary), var(--color-accent-secondary));
         }
 
-        .error-quotes .quote-text p {
+        .quote-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .quote-card:hover::after {
+            animation: shine 1.5s ease;
+        }
+
+        .quote-text p {
             font-style: italic;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--color-text-primary);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             position: relative;
+            z-index: 2;
         }
 
-        .error-quotes .quote-text p::before {
+        .quote-text p::before {
             content: '"';
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--color-accent-primary);
             position: absolute;
-            left: -1rem;
-            top: -0.5rem;
+            left: -1.5rem;
+            top: -1rem;
             opacity: 0.7;
+            font-family: serif;
         }
 
-        .error-quotes .quote-context {
-            font-size: 0.9rem;
+        .quote-context {
+            font-size: 1rem;
             color: var(--color-text-muted);
             font-family: 'Share Tech Mono', monospace;
+            position: relative;
+            z-index: 2;
         }
 
+        /* Action Buttons */
         .error-actions {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .error-btn {
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             border: 2px solid transparent;
             font-family: 'Exo 2', sans-serif;
-            font-size: 1rem;
-            min-width: 180px;
+            font-size: 1.1rem;
+            min-width: 200px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .error-btn.primary {
             background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
             color: var(--color-bg-primary);
-            border-color: var(--color-accent-primary);
+            border: none;
             font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.3);
         }
 
         .error-btn.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.4);
-        }
-
-        .error-btn.primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .error-btn.primary:hover::before {
-            left: 100%;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.5);
         }
 
         .error-btn.secondary {
-            background-color: transparent;
+            background: rgba(18, 18, 26, 0.8);
             color: var(--color-text-primary);
-            border-color: var(--color-border);
+            border-color: var(--color-accent-primary);
         }
 
         .error-btn.secondary:hover {
-            background-color: var(--color-bg-tertiary);
-            border-color: var(--color-accent-primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.3);
+            background: rgba(0, 243, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.3);
         }
 
-        /* Background animation */
-        .error-bg-animation {
+        /* Floating Particles */
+        .floating-particle {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            animation: particle-float 8s linear infinite;
         }
 
-        .error-bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--color-accent-primary) 0%, transparent 70%);
-            opacity: 0.1;
-            animation: pulse 8s ease-in-out infinite;
+        .particle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .particle-2 { top: 60%; right: 20%; animation-delay: 2s; }
+        .particle-3 { bottom: 30%; left: 25%; animation-delay: 4s; }
+        .particle-4 { top: 40%; right: 30%; animation-delay: 6s; }
+
+        /* Animations */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
-        .error-bg-circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            left: -150px;
-            animation-delay: 0s;
+        @keyframes nebula-float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -20px) scale(1.1); }
+            50% { transform: translate(-15px, 15px) scale(0.9); }
+            75% { transform: translate(10px, 20px) scale(1.05); }
         }
 
-        .error-bg-circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            bottom: -100px;
-            right: 20%;
-            animation-delay: 2s;
+        @keyframes digit-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
-        .error-bg-circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 30%;
-            right: -75px;
-            animation-delay: 4s;
+        @keyframes icon-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
-        @keyframes float {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg); 
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        @keyframes title-glow {
+            0% { text-shadow: 0 0 30px rgba(0, 243, 255, 0.4); }
+            100% { text-shadow: 0 0 50px rgba(0, 243, 255, 0.8), 0 0 70px rgba(157, 78, 221, 0.4); }
+        }
+
+        @keyframes card-float {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(2deg); }
+        }
+
+        @keyframes shine {
+            0% { opacity: 0; transform: rotate(45deg) translateX(-100%); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: rotate(45deg) translateX(100%); }
+        }
+
+        @keyframes particle-float {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) rotate(0deg);
             }
-            50% { 
-                transform: translateY(-15px) rotate(5deg); 
+            10% {
+                opacity: 1;
             }
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 0.1;
+            90% {
+                opacity: 1;
             }
-            50% { 
-                transform: scale(1.1);
-                opacity: 0.15;
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
             }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .error-code {
-                font-size: 7rem;
+            .error-digit {
+                font-size: 8rem;
             }
 
             .error-icon {
-                font-size: 5rem;
+                font-size: 6rem;
                 margin: 0 1rem;
             }
 
             .error-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .error-description {
-                font-size: 1.1rem;
-                padding: 0 1rem;
+                font-size: 1.2rem;
+            }
+
+            .error-quotes {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .error-actions {
                 flex-direction: column;
                 align-items: center;
-                gap: 1rem;
             }
 
             .error-btn {
-                width: 220px;
+                width: 100%;
+                max-width: 280px;
             }
 
-            .error-quotes .quote-card {
+            .quote-card {
                 padding: 1.5rem;
             }
 
-            .error-quotes .quote-text p {
-                font-size: 1rem;
+            .quote-text p {
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .error-code {
+            .error-digit {
                 font-size: 5rem;
             }
 
@@ -312,324 +443,162 @@
             }
 
             .error-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .error-description {
                 font-size: 1rem;
             }
 
-            .error-hero {
-                padding: 2rem 1rem;
-                min-height: 70vh;
+            .error-container {
+                padding: 1rem;
             }
 
-            .error-quotes .quote-card {
+            .quote-card {
                 padding: 1.25rem;
             }
 
-            .error-quotes .quote-text p::before {
-                left: -0.5rem;
-                top: -0.3rem;
-                font-size: 1.5rem;
+            .quote-text p::before {
+                left: -1rem;
+                top: -0.5rem;
+                font-size: 2rem;
             }
         }
 
-        /* Ensure main content has proper spacing on desktop */
-        @media (min-width: 768px) {
-            .main-content {
-                margin-left: 280px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .main-content {
-                margin-left: 300px;
-            }
-        }
-
-        /* Fix for mobile navigation overlap */
-        @media (max-width: 767px) {
-            .main-content {
-                margin-left: 0 !important;
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Mobile Header -->
-        <header class="mobile-header">
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <h1 class="mobile-logo">QUOTED</h1>
-        </header>
+    <!-- Animated Cosmic Background -->
+    <div class="cosmic-bg" id="cosmicBg"></div>
 
-        <!-- Side Navigation -->
-        <nav class="sidenav" id="sideNav">
-            <div class="nav-header">
-                <div class="header-top">
-                    <h1 class="logo">QUOTED</h1>
-                    <button class="close-menu" id="closeMenu">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="nav-topics">
-                <div class="nav-links-container">
-                    <!-- Navigation links remain the same -->
-                    <a href="topics/absurdism.html" class="nav-link">Absurdism</a>
-                    <a href="topics/addiction-to-knowledge.html" class="nav-link">Addiction to Knowledge</a>
-                    <a href="topics/alcohol-drugs.html" class="nav-link">Alcohol and Drugs</a>
-                    <a href="topics/algorithms.html" class="nav-link">Algorithms</a>
-                    <a href="topics/applied-knowledge.html" class="nav-link">Applied Knowledge</a>
-                    <a href="topics/artificial-intelligence.html" class="nav-link">Artificial Intelligence</a>
-                    <a href="topics/artists.html" class="nav-link">Artists</a>
-                    <a href="topics/attention.html" class="nav-link">Attention</a>
-                    <a href="topics/authenticity.html" class="nav-link">Authenticity</a>
-                    <a href="topics/beliefs.html" class="nav-link">Beliefs</a>
-                    <a href="topics/biases.html" class="nav-link">Biases</a>
-                    <a href="topics/bureaucracy.html" class="nav-link">Bureaucracy</a>
-                    <a href="topics/business.html" class="nav-link">Business</a>
-                    <a href="topics/career.html" class="nav-link">Career</a>
-                    <a href="topics/change.html" class="nav-link">Change & Adaptation</a>
-                    <a href="topics/chaos-theory.html" class="nav-link">Chaos Theory</a>
-                    <a href="topics/class.html" class="nav-link">Class</a>
-                    <a href="topics/clothing.html" class="nav-link">Clothing</a>
-                    <a href="topics/cognitive-dissonance.html" class="nav-link">Cognitive Dissonance</a>
-                    <a href="topics/comfort-risk.html" class="nav-link">Comfort & Risk</a>
-                    <a href="topics/commitment.html" class="nav-link">Commitment</a>
-                    <a href="topics/communication.html" class="nav-link">Communication</a>
-                    <a href="topics/community.html" class="nav-link">Community & Legacy</a>
-                    <a href="topics/complexity.html" class="nav-link">Complexity</a>
-                    <a href="topics/conformity.html" class="nav-link">Conformity</a>
-                    <a href="topics/conflict.html" class="nav-link">Conflict</a>
-                    <a href="topics/consequences.html" class="nav-link">Consequences</a>
-                    <a href="topics/consciousness.html" class="nav-link">Consciousness</a>
-                    <a href="topics/consistency.html" class="nav-link">Consistency</a>
-                    <a href="topics/consumerism.html" class="nav-link">Consumerism</a>
-                    <a href="topics/courage.html" class="nav-link">Courage</a>
-                    <a href="topics/creativity.html" class="nav-link">Creativity</a>
-                    <a href="topics/critical-thinking.html" class="nav-link">Critical Thinking</a>
-                    <a href="topics/criticism.html" class="nav-link">Criticism</a>
-                    <a href="topics/cryptography.html" class="nav-link">Cryptography</a>
-                    <a href="topics/cybernetics.html" class="nav-link">Cybernetics</a>
-                    <a href="topics/democracy.html" class="nav-link">Democracy</a>
-                    <a href="topics/denial.html" class="nav-link">Denial</a>
-                    <a href="topics/determinism.html" class="nav-link">Determinism</a>
-                    <a href="topics/digital-wellness.html" class="nav-link">Digital Wellness</a>
-                    <a href="topics/discipline.html" class="nav-link">Discipline</a>
-                    <a href="topics/dopamine.html" class="nav-link">Dopamine</a>
-                    <a href="topics/education.html" class="nav-link">Education</a>
-                    <a href="topics/emergence.html" class="nav-link">Emergence</a>
-                    <a href="topics/entertainment.html" class="nav-link">Entertainment</a>
-                    <a href="topics/environment.html" class="nav-link">Environment</a>
-                    <a href="topics/envy.html" class="nav-link">Envy</a>
-                    <a href="topics/epistemology.html" class="nav-link">Epistemology</a>
-                    <a href="topics/ethics.html" class="nav-link">Ethics</a>
-                    <a href="topics/excellence.html" class="nav-link">Excellence</a>
-                    <a href="topics/execution.html" class="nav-link">Execution</a>
-                    <a href="topics/existentialism.html" class="nav-link">Existentialism</a>
-                    <a href="topics/failure.html" class="nav-link">Failure</a>
-                    <a href="topics/faith.html" class="nav-link">Faith</a>
-                    <a href="topics/fallacies.html" class="nav-link">Fallacies</a>
-                    <a href="topics/family.html" class="nav-link">Family</a>
-                    <a href="topics/fatherhood.html" class="nav-link">Fatherhood</a>
-                    <a href="topics/fear.html" class="nav-link">Fear</a>
-                    <a href="topics/feedback.html" class="nav-link">Feedback</a>
-                    <a href="topics/find-your-path.html" class="nav-link">Find Your Path</a>
-                    <a href="topics/fitness.html" class="nav-link">Physical Fitness</a>
-                    <a href="topics/focus.html" class="nav-link">Focus & Concentration</a>
-                    <a href="topics/food.html" class="nav-link">Food</a>
-                    <a href="topics/forgiveness.html" class="nav-link">Forgiveness</a>
-                    <a href="topics/fractals.html" class="nav-link">Fractals</a>
-                    <a href="topics/freedom.html" class="nav-link">Freedom</a>
-                    <a href="topics/friends.html" class="nav-link">Friends</a>
-                    <a href="topics/fundamentals.html" class="nav-link">Fundamentals</a>
-                    <a href="topics/futurism.html" class="nav-link">Futurism</a>
-                    <a href="topics/generosity.html" class="nav-link">Generosity</a>
-                    <a href="topics/genius.html" class="nav-link">Genius</a>
-                    <a href="topics/goal-setting.html" class="nav-link">Goal Setting</a>
-                    <a href="topics/gratitude.html" class="nav-link">Gratitude</a>
-                    <a href="topics/growing-old.html" class="nav-link">Growing Old</a>
-                    <a href="topics/habits.html" class="nav-link">Habits</a>
-                    <a href="topics/happiness.html" class="nav-link">Happiness</a>
-                    <a href="topics/herds.html" class="nav-link">Herds</a>
-                    <a href="topics/heuristics.html" class="nav-link">Heuristics</a>
-                    <a href="topics/hiring.html" class="nav-link">Hiring and Being Hired</a>
-                    <a href="topics/history.html" class="nav-link">History</a>
-                    <a href="topics/home.html" class="nav-link">Home</a>
-                    <a href="topics/honesty.html" class="nav-link">Honesty</a>
-                    <a href="topics/humility.html" class="nav-link">Humility</a>
-                    <a href="topics/hydration.html" class="nav-link">Hydration</a>
-                    <a href="topics/ideas.html" class="nav-link">Ideas</a>
-                    <a href="topics/improving.html" class="nav-link">Improving</a>
-                    <a href="topics/inequality.html" class="nav-link">Inequality</a>
-                    <a href="topics/information-overload.html" class="nav-link">Information Overload</a>
-                    <a href="topics/inspiration.html" class="nav-link">Inspiration</a>
-                    <a href="topics/integrity.html" class="nav-link">Integrity & Reputation</a>
-                    <a href="topics/investing.html" class="nav-link">Investing</a>
-                    <a href="topics/intuition.html" class="nav-link">Intuition</a>
-                    <a href="topics/jealousy.html" class="nav-link">Jealousy</a>
-                    <a href="topics/journaling.html" class="nav-link">Journaling</a>
-                    <a href="topics/justice.html" class="nav-link">Justice</a>
-                    <a href="topics/knowledge-addiction.html" class="nav-link">Addiction to Knowledge</a>
-                    <a href="topics/leadership.html" class="nav-link">Leadership</a>
-                    <a href="topics/learning.html" class="nav-link">Learning</a>
-                    <a href="topics/life.html" class="nav-link">Life</a>
-                    <a href="topics/lifestyle.html" class="nav-link">Lifestyle</a>
-                    <a href="topics/living-space.html" class="nav-link">Living Space</a>
-                    <a href="topics/logic.html" class="nav-link">Logic</a>
-                    <a href="topics/long-term-thinking.html" class="nav-link">Long-Term Thinking</a>
-                    <a href="topics/luck-vs-risk.html" class="nav-link">Luck vs Risk</a>
-                    <a href="topics/marriage.html" class="nav-link">Marriage</a>
-                    <a href="topics/masculinity.html" class="nav-link">Masculinity</a>
-                    <a href="topics/mastery.html" class="nav-link">Mastery</a>
-                    <a href="topics/mathematics.html" class="nav-link">Pure Mathematics</a>
-                    <a href="topics/memory.html" class="nav-link">Memory</a>
-                    <a href="topics/mental-health.html" class="nav-link">Mental Health</a>
-                    <a href="topics/mentorship.html" class="nav-link">Mentorship</a>
-                    <a href="topics/metacognition.html" class="nav-link">Metacognition</a>
-                    <a href="topics/mindset.html" class="nav-link">Mindset</a>
-                    <a href="topics/minimalism.html" class="nav-link">Minimalism</a>
-                    <a href="topics/moderation.html" class="nav-link">Moderation</a>
-                    <a href="topics/morality.html" class="nav-link">Morality</a>
-                    <a href="topics/multitasking.html" class="nav-link">Multitasking vs Single-tasking</a>
-                    <a href="topics/networking.html" class="nav-link">Networking</a>
-                    <a href="topics/networks.html" class="nav-link">Networks</a>
-                    <a href="topics/nihilism.html" class="nav-link">Nihilism</a>
-                    <a href="topics/opportunities.html" class="nav-link">Opportunities</a>
-                    <a href="topics/optimists.html" class="nav-link">Optimists</a>
-                    <a href="topics/pain.html" class="nav-link">Pain</a>
-                    <a href="topics/paradoxes.html" class="nav-link">Paradoxes</a>
-                    <a href="topics/parenting.html" class="nav-link">Parenting</a>
-                    <a href="topics/passion-projects.html" class="nav-link">Passion Projects</a>
-                    <a href="topics/past.html" class="nav-link">The Past</a>
-                    <a href="topics/patience.html" class="nav-link">Patience</a>
-                    <a href="topics/perception.html" class="nav-link">Perception</a>
-                    <a href="topics/perfectionism.html" class="nav-link">Perfectionism</a>
-                    <a href="topics/planning.html" class="nav-link">Planning and Strategy</a>
-                    <a href="topics/politicians.html" class="nav-link">Politicians</a>
-                    <a href="topics/politics.html" class="nav-link">Politics</a>
-                    <a href="topics/pride.html" class="nav-link">Pride</a>
-                    <a href="topics/priorities.html" class="nav-link">Priorities</a>
-                    <a href="topics/privacy.html" class="nav-link">Privacy</a>
-                    <a href="topics/problem-solving.html" class="nav-link">Problem Solving</a>
-                    <a href="topics/procrastination.html" class="nav-link">Procrastination</a>
-                    <a href="topics/productivity.html" class="nav-link">Productivity</a>
-                    <a href="topics/programming.html" class="nav-link">Programming</a>
-                    <a href="topics/purpose.html" class="nav-link">Purpose</a>
-                    <a href="topics/quantum-mechanics.html" class="nav-link">Quantum Mechanics</a>
-                    <a href="topics/quitting.html" class="nav-link">Quitting</a>
-                    <a href="topics/reading.html" class="nav-link">Reading</a>
-                    <a href="topics/relationships.html" class="nav-link">Relationships</a>
-                    <a href="topics/religion.html" class="nav-link">Religion</a>
-                    <a href="topics/resilience.html" class="nav-link">Resilience</a>
-                    <a href="topics/respect.html" class="nav-link">Respect</a>
-                    <a href="topics/responsibility.html" class="nav-link">Responsibility</a>
-                    <a href="topics/rationality.html" class="nav-link">Rationality</a>
-                    <a href="topics/satisficing.html" class="nav-link">Satisficing</a>
-                    <a href="topics/scars.html" class="nav-link">Scars and Wounds</a>
-                    <a href="topics/science.html" class="nav-link">Science</a>
-                    <a href="topics/self-awareness.html" class="nav-link">Self-Awareness</a>
-                    <a href="topics/self-care.html" class="nav-link">Self-Care</a>
-                    <a href="topics/self-sabotage.html" class="nav-link">Self-Sabotage</a>
-                    <a href="topics/simplicity.html" class="nav-link">Simplicity</a>
-                    <a href="topics/simulation-theory.html" class="nav-link">Simulation Theory</a>
-                    <a href="topics/singularity.html" class="nav-link">Singularity</a>
-                    <a href="topics/skepticism.html" class="nav-link">Skepticism</a>
-                    <a href="topics/skill-development.html" class="nav-link">Skill Development</a>
-                    <a href="topics/sleep.html" class="nav-link">Sleep</a>
-                    <a href="topics/social-issues.html" class="nav-link">Social Issues</a>
-                    <a href="topics/socialism.html" class="nav-link">Socialism</a>
-                    <a href="topics/society.html" class="nav-link">Society</a>
-                    <a href="topics/solipsism.html" class="nav-link">Solipsism</a>
-                    <a href="topics/speed-direction.html" class="nav-link">Speed and Direction</a>
-                    <a href="topics/spirituality.html" class="nav-link">Spirituality</a>
-                    <a href="topics/starting-finishing.html" class="nav-link">Starting & Finishing</a>
-                    <a href="topics/statistics.html" class="nav-link">Statistics</a>
-                    <a href="topics/stoicism.html" class="nav-link">Stoicism</a>
-                    <a href="topics/stress.html" class="nav-link">Stress</a>
-                    <a href="topics/success.html" class="nav-link">Success</a>
-                    <a href="topics/sustainability.html" class="nav-link">Sustainability</a>
-                    <a href="topics/taoism.html" class="nav-link">Taoism</a>
-                    <a href="topics/taxes.html" class="nav-link">Taxes</a>
-                    <a href="topics/time.html" class="nav-link">Time</a>
-                    <a href="topics/tolerance.html" class="nav-link">Tolerance</a>
-                    <a href="topics/transhumanism.html" class="nav-link">Transhumanism</a>
-                    <a href="topics/travel.html" class="nav-link">Travel and Adventure</a>
-                    <a href="topics/truth.html" class="nav-link">Truth</a>
-                    <a href="topics/victim-mentality.html" class="nav-link">Victim Mentality</a>
-                    <a href="topics/violence.html" class="nav-link">Violence</a>
-                    <a href="topics/vision.html" class="nav-link">Vision</a>
-                    <a href="topics/wealth.html" class="nav-link">Wealth</a>
-                    <a href="topics/will-to-stupidity.html" class="nav-link">Will to Stupidity</a>
-                    <a href="topics/winning.html" class="nav-link">Winning</a>
-                    <a href="topics/wisdom.html" class="nav-link">Wisdom</a>
-                    <a href="topics/worldview.html" class="nav-link">Worldview</a>
-                </div>
-            </div>
-            
-            <div class="nav-footer">
-                <div class="system-status">
-                    <span class="status-indicator"></span>
-                    <span class="status-text">System Online</span>
-                </div>
-            </div>
-        </nav>
+    <!-- Floating Particles -->
+    <div class="floating-particle particle-1">✨</div>
+    <div class="floating-particle particle-2">💫</div>
+    <div class="floating-particle particle-3">⭐</div>
+    <div class="floating-particle particle-4">🔭</div>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <section class="error-hero">
-                <!-- Background Animation -->
-                <div class="error-bg-animation">
-                    <div class="error-bg-circle"></div>
-                    <div class="error-bg-circle"></div>
-                    <div class="error-bg-circle"></div>
+    <!-- Nebula Effects -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+
+    <div class="error-container">
+        <div class="error-content">
+            <!-- Animated 404 -->
+            <div class="error-code">
+                <span class="error-digit">4</span>
+                <span class="error-icon"></span>
+                <span class="error-digit">4</span>
+            </div>
+
+            <h1 class="error-title">Wisdom Lost in Space</h1>
+            
+            <p class="error-description">
+                The knowledge you seek has drifted into the cosmic void. 
+                Even the brightest minds sometimes lose their way among the stars of wisdom.
+            </p>
+
+            <!-- Floating Quote Cards -->
+            <div class="error-quotes">
+                <div class="quote-card">
+                    <div class="quote-text">
+                        <p>"The only true wisdom is in knowing you know nothing."</p>
+                        <div class="quote-context">— Socrates, Ancient Greece</div>
+                    </div>
                 </div>
                 
-                <div class="error-content">
-                    <div class="error-code">
-                        <span class="error-number">4</span>
-                        <span class="error-icon">💭</span>
-                        <span class="error-number">4</span>
-                    </div>
-                    <h1 class="error-title">Wisdom Not Found</h1>
-                    <p class="error-description">
-                        The page you're looking for seems to have wandered off into the realm of unquoted thoughts. 
-                        Even the greatest minds sometimes lose their way in the vast library of knowledge.
-                    </p>
-                    
-                    <div class="error-quotes">
-                        <div class="quote-card">
-                            <div class="quote-text">
-                                <p>"The only true wisdom is in knowing you know nothing."</p>
-                                <div class="quote-context">— Socrates</div>
-                            </div>
-                        </div>
-                        
-                        <div class="quote-card">
-                            <div class="quote-text">
-                                <p>"When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it - this is knowledge."</p>
-                                <div class="quote-context">— Confucius</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="error-actions">
-                        <a href="index.html" class="error-btn primary">Return to Home</a>
+                <div class="quote-card">
+                    <div class="quote-text">
+                        <p>"When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it - this is knowledge."</p>
+                        <div class="quote-context">— Confucius, Ancient China</div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="error-actions">
+                <a href="index.html" class="error-btn primary">Return to Home</a>
+            </div>
+        </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Create dynamic starfield
+        function createStarfield() {
+            const cosmicBg = document.getElementById('cosmicBg');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random size
+                const sizes = ['small', 'medium', 'large'];
+                star.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random animation duration and delay
+                const duration = 2 + Math.random() * 4;
+                const delay = Math.random() * 5;
+                star.style.setProperty('--duration', duration + 's');
+                star.style.animationDelay = delay + 's';
+                
+                cosmicBg.appendChild(star);
+            }
+        }
+
+        // Animate floating particles
+        function animateParticles() {
+            const particles = document.querySelectorAll('.floating-particle');
+            particles.forEach(particle => {
+                // Randomize initial position and animation
+                particle.style.left = Math.random() * 80 + 10 + '%';
+                particle.style.animationDuration = (6 + Math.random() * 6) + 's';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+            });
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createStarfield();
+            animateParticles();
+            
+            // Add interactive cursor effect
+            document.addEventListener('mousemove', function(e) {
+                const particles = document.querySelectorAll('.star');
+                particles.forEach(star => {
+                    const starRect = star.getBoundingClientRect();
+                    const starX = starRect.left + starRect.width / 2;
+                    const starY = starRect.top + starRect.height / 2;
+                    const distance = Math.sqrt(
+                        Math.pow(e.clientX - starX, 2) + 
+                        Math.pow(e.clientY - starY, 2)
+                    );
+                    
+                    if (distance < 100) {
+                        star.style.transform = `scale(${2 - distance / 100})`;
+                    }
+                });
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
 </body>
 </html>
