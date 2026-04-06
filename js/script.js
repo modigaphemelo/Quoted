@@ -1,50 +1,241 @@
-// ============================================
 // TOPICS LIST
-// ============================================
 const topicsList = [
-    "Absurdism", "Addiction to Knowledge", "Alcohol and Drugs", "Algorithms",
-    "Applied Knowledge", "Artificial Intelligence", "Artists", "Attention",
-    "Authenticity", "Beliefs", "Biases", "Bureaucracy", "Business", "Career",
-    "Change & Adaptation", "Chaos Theory", "Class", "Clothing", "Cognitive Dissonance",
-    "Comfort & Risk", "Commitment", "Communication", "Community & Legacy",
-    "Complexity", "Conformity", "Conflict", "Consciousness", "Consistency",
-    "Consumerism", "Courage", "Creativity", "Critical Thinking", "Criticism",
-    "Cryptography", "Cybernetics", "Democracy", "Denial", "Determinism",
-    "Digital Wellness", "Discipline", "Dopamine", "Education", "Emergence",
-    "Entertainment", "Environment", "Envy", "Epistemology", "Ethics",
-    "Excellence", "Execution", "Existentialism", "Failure", "Faith",
-    "Fallacies", "Family", "Fatherhood", "Fear", "Feedback", "Find Your Path",
-    "Physical Fitness", "Focus & Concentration", "Food", "Forgiveness",
-    "Fractals", "Freedom", "Friends", "Fundamentals", "Futurism", "Generosity",
-    "Genius", "Goal Setting", "Gratitude", "Growing Old", "Habits",
-    "Happiness", "Herds", "Heuristics", "Hesitation is Defeat",
-    "Hiring and Being Hired", "History", "Home", "Honesty", "Humility",
-    "Hydration", "Ideas", "Improving", "Inequality", "Information Overload",
-    "Inspiration", "Integrity & Reputation", "Investing", "Intuition",
-    "Jealousy", "Journaling", "Justice", "Leadership", "Learning", "Life",
-    "Lifestyle", "Living Space", "Logic", "Long-Term Thinking", "Loyalty",
-    "Luck vs Risk", "Marriage", "Masculinity", "Mastery", "Pure Mathematics",
-    "Memory", "Mental Health", "Mentorship", "Metacognition", "Mindset",
-    "Minimalism", "Moderation", "Morality", "Multitasking vs Single-tasking",
-    "Narcissism", "Networking", "Networks", "Nihilism", "Opportunities",
-    "Optimists", "Pain", "Paradoxes", "Parenting", "Passion Projects",
-    "The Past", "Patience", "Perception", "Perfectionism", "Planning and Strategy",
-    "Politicians", "Politics", "Pride", "Priorities", "Privacy",
-    "Problem Solving", "Procrastination", "Productivity", "Programming",
-    "Purpose", "Quantum Mechanics", "Quitting", "Reading", "Relationships",
-    "Religion", "Resilience", "Respect", "Responsibility", "Rationality",
-    "Satisficing", "Scars and Wounds", "Science", "Self-Awareness",
-    "Self-Care", "Self-Sabotage", "Simplicity", "Simulation Theory",
-    "Singularity", "Skepticism", "Skill Development", "Sleep", "Social Issues",
-    "Socialism", "Society", "Solipsism", "Speed and Direction",
-    "Spirituality", "Starting & Finishing", "Statistics", "Stoicism",
-    "Stress", "Success", "Sustainability", "Taoism", "Taxes", "Time",
-    "Tolerance", "Transhumanism", "Travel and Adventure", "Truth",
-    "Victim Mentality", "Violence", "Vision", "Wealth", "Will to Stupidity",
-    "Winning", "Wisdom", "Worldview"
+    "A Finished Thing",
+    "Absurdism",
+    "Addiction to Knowledge",
+    "Alcohol and Drugs",
+    "Algorithms",
+    "Apophenia (False Patterns)",
+    "Applied Knowledge",
+    "Artificial Intelligence",
+    "Artists",
+    "Attention",
+    "Authenticity",
+    "Beliefs",
+    "Biases",
+    "Bureaucracy",
+    "Business",
+    "Career",
+    "Change & Adaptation",
+    "Chaos Theory",
+    "Class",
+    "Clothing",
+    "Cognitive Dissonance",
+    "Comfort & Risk",
+    "Commitment",
+    "Communication",
+    "Community & Legacy",
+    "Complexity",
+    "Compound Interest",
+    "Confirmation Bias",
+    "Conformity",
+    "Conflict",
+    "Consciousness",
+    "Consistency",
+    "Consumerism",
+    "Courage",
+    "Creativity",
+    "Critical Thinking",
+    "Criticism",
+    "Cryptography",
+    "Curse of Knowledge",
+    "Cybernetics",
+    "Democracy",
+    "Denial",
+    "Determinism",
+    "Digital Wellness",
+    "Discipline",
+    "Dopamine",
+    "Dunning-Kruger Effect",
+    "Education",
+    "Emergence",
+    "Enough",
+    "Entertainment",
+    "Environment",
+    "Envy",
+    "Epistemology",
+    "Ethics",
+    "Excellence",
+    "Execution",
+    "Existentialism",
+    "Failure",
+    "Faith",
+    "Fallacies",
+    "Family",
+    "Fatherhood",
+    "Fear",
+    "Feedback",
+    "Find Your Path",
+    "Focus & Concentration",
+    "Food",
+    "Forgiveness",
+    "Fractals",
+    "Freedom",
+    "Friends",
+    "Fundamental Attribution Error",
+    "Fundamentals",
+    "Futurism",
+    "Gambling & The Illusion of Control",
+    "Generosity",
+    "Genius",
+    "Goal Setting",
+    "Goodhart's Law",
+    "Gratitude",
+    "Gray Rock & No Contact",
+    "Grief (Unfinished)",
+    "Growing Old",
+    "Habits",
+    "Happiness",
+    "Herds",
+    "Heuristics",
+    "Hesitation is Defeat",
+    "Hindsight Bias",
+    "Hiring and Being Hired",
+    "History",
+    "Home",
+    "Honesty",
+    "Hoovering",
+    "Humility",
+    "Hydration",
+    "Ideas",
+    "Illusory Superiority",
+    "Improving",
+    "Inequality",
+    "Inflation",
+    "Information Overload",
+    "Inspiration",
+    "Integrity & Reputation",
+    "Intuition",
+    "Investing",
+    "Jealousy",
+    "Journaling",
+    "Justice",
+    "Leadership",
+    "Learning",
+    "Leverage",
+    "Life",
+    "Lifestyle",
+    "Living Space",
+    "Logic",
+    "Loneliness vs Solitude",
+    "Long-Term Thinking",
+    "Loyalty",
+    "Luck vs Risk",
+    "Marriage",
+    "Masculinity",
+    "Mastery",
+    "Memory",
+    "Mental Health",
+    "Mentorship",
+    "Metacognition",
+    "Mindset",
+    "Minimalism",
+    "Moderation",
+    "Morality",
+    "Motivated Reasoning",
+    "Multitasking vs Single-tasking",
+    "Narcissism",
+    "Negativity Bias",
+    "Networking",
+    "Networks",
+    "Nihilism",
+    "Opportunities",
+    "Optimism Bias",
+    "Optimists",
+    "Pain",
+    "Paradoxes",
+    "Parenting",
+    "Passion Projects",
+    "Patience",
+    "Perception",
+    "Perfectionism",
+    "Physical Fitness",
+    "Planning and Strategy",
+    "Play / Unstructured Time",
+    "Politicians",
+    "Politics",
+    "Pride",
+    "Priorities",
+    "Privacy",
+    "Problem Solving",
+    "Procrastination",
+    "Productivity",
+    "Programming",
+    "Pure Mathematics",
+    "Purpose",
+    "Quantum Mechanics",
+    "Quitting",
+    "Rationality",
+    "Reading",
+    "Regulatory Capture",
+    "Relationships",
+    "Religion",
+    "Resilience",
+    "Respect",
+    "Responsibility",
+    "Satisficing",
+    "Scars and Wounds",
+    "Scars as Evidence",
+    "Science",
+    "Self-Awareness",
+    "Self-Care",
+    "Self-Sabotage",
+    "Signaling vs Skill",
+    "Simplicity",
+    "Simulation Theory",
+    "Singularity",
+    "Skepticism",
+    "Skill Development",
+    "Sleep",
+    "Social Issues",
+    "Socialism",
+    "Society",
+    "Solipsism",
+    "Speed and Direction",
+    "Spirituality",
+    "Starting & Finishing",
+    "Statistics",
+    "Stoicism",
+    "Stress",
+    "Success",
+    "Sunk Cost Fallacy",
+    "Sustainability",
+    "Taoism",
+    "Taxes",
+    "The 20-Minute Rule",
+    "The Addict Archetype",
+    "The Avoider Archetype",
+    "The Backfire Effect",
+    "The Borderline Pattern",
+    "The Iron Law of Oligarchy",
+    "The Labor Market",
+    "The Map is Not the Territory",
+    "The Narcissist Filter",
+    "The Narcissist's Playbook",
+    "The Opposite of Narcissism",
+    "The Past",
+    "The Peter Principle",
+    "The Planning Fallacy",
+    "The Rescuer Archetype",
+    "The Spotlight Effect",
+    "The Victim Archetype",
+    "Time",
+    "Tolerance",
+    "Transhumanism",
+    "Travel and Adventure",
+    "Triangulation",
+    "Truth",
+    "Victim Mentality",
+    "Violence",
+    "Vision",
+    "Wealth",
+    "Will to Stupidity",
+    "Winning",
+    "Wisdom",
+    "Worldview",
+    "Your Own Word"
 ];
 
-// Convert topic name to filename (e.g., "Addiction to Knowledge" -> "addiction-to-knowledge")
 function topicToFilename(topic) {
     return topic.toLowerCase()
         .replace(/ & /g, '-')
@@ -52,28 +243,22 @@ function topicToFilename(topic) {
         .replace(/[^a-z0-9-]/g, '');
 }
 
-// Generate navigation links dynamically
 function generateNavigation() {
     const container = document.getElementById('navLinksContainer');
     if (!container) return;
     
-    // Get current page filename (e.g., "narcissism.html" -> "narcissism")
     const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
     
     let html = '';
     for (const topic of topicsList) {
         const filename = topicToFilename(topic);
         const isActive = (currentPage === filename);
-        html += `<a href="topics/${filename}.html" class="nav-link${isActive ? ' active' : ''}">${topic}</a>`;
+        html += `<a href="${filename}.html" class="nav-link${isActive ? ' active' : ''}">${topic}</a>`;
     }
     container.innerHTML = html;
 }
 
-// ============================================
-// EXISTING CODE (preserved and working)
-// ============================================
-
-// Mobile menu functionality
+// Mobile menu
 const menuToggle = document.getElementById('menuToggle');
 const closeMenu = document.getElementById('closeMenu');
 const sideNav = document.getElementById('sideNav');
@@ -89,7 +274,6 @@ if (menuToggle && closeMenu && sideNav) {
         document.body.style.overflow = '';
     });
 
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         if (!sideNav.contains(event.target) && !menuToggle.contains(event.target)) {
             sideNav.classList.remove('active');
@@ -98,7 +282,7 @@ if (menuToggle && closeMenu && sideNav) {
     });
 }
 
-// Add subtle animation to quote cards on scroll
+// Quote card animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -113,7 +297,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe quote cards (slight delay to ensure they exist)
 setTimeout(() => {
     document.querySelectorAll('.quote-card').forEach((card, index) => {
         card.style.opacity = '0';
@@ -123,14 +306,13 @@ setTimeout(() => {
     });
 }, 100);
 
-// Simple scroll indicator for navigation
+// Scroll indicator
 const navLinksContainer = document.querySelector('.nav-links-container');
 let isScrolling;
 
 if (navLinksContainer) {
     navLinksContainer.addEventListener('scroll', function() {
         window.clearTimeout(isScrolling);
-        
         isScrolling = setTimeout(function() {
             if (navLinksContainer.scrollTop > 10) {
                 navLinksContainer.style.boxShadow = 'inset 0 8px 8px -8px rgba(0, 0, 0, 0.1)';
@@ -141,13 +323,10 @@ if (navLinksContainer) {
     });
 }
 
-// ============================================
-// RUN NAVIGATION GENERATION when page loads
-// ============================================
+// Initialize navigation and re-attach menu close to dynamic links
 document.addEventListener('DOMContentLoaded', function() {
     generateNavigation();
     
-    // Re-attach menu close listeners to dynamically created nav links
     setTimeout(() => {
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
